@@ -40,9 +40,6 @@ app.use(
   })
 );
 
-// Preflight
-app.options("/*", cors());
-
 const {
   redirectFromShortUrl,
 } = require("./src/controllers/shorturl.controlers");
