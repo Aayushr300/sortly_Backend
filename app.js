@@ -17,6 +17,10 @@ const planRoutes = require("./src/routes/admin/plan");
 const policyRoutes = require("./src/routes/policy.route");
 const testEmail = require("./src/routes/testEmail");
 const userRoutes = require("./src/routes/user.routes");
+const {
+  redirectFromShortUrl,
+} = require("./src/controllers/shorturl.controlers");
+
 const cors = require("cors");
 
 const allowedOrigins = [
@@ -40,9 +44,10 @@ app.use(
   })
 );
 
-const {
-  redirectFromShortUrl,
-} = require("./src/controllers/shorturl.controlers");
+app.use((req, res, next) => {
+  console.log("Incoming request:", req.method, req.url, req.body);
+  next();
+});
 
 app.use(express.json());
 
