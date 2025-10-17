@@ -79,42 +79,6 @@ router.get("/stats", async (req, res) => {
   }
 });
 
-// router.get("/users", async (req, res) => {
-//   const authHeader = req.headers.authorization;
-//   const token = authHeader?.split(" ")[1];
-//   const db = await getDb();
-//   try {
-//     if (!token) return res.status(401).json({ message: "Missing token" });
-
-//     jwt.verify(token, JWT_SECRET);
-
-//     const [[{ totalUsers }]] = await db.execute(
-//       "SELECT COUNT(*) AS totalUsers FROM users"
-//     );
-//     const [[{ activeSubscribers }]] = await db.execute(
-//       "SELECT COUNT(*) AS activeSubscribers FROM subscriptions WHERE is_active = 1"
-//     );
-
-//     // const [users] = await db.execute("SELECT id, name, email FROM users");
-
-//     const [users] = await db.execute(`
-//   SELECT
-//     u.id,
-//     u.name,
-//     u.email,
-//     u.created_at,
-//     COUNT(l.id) AS totalLinks
-//   FROM users u
-//   LEFT JOIN short_urls l ON l.user_id = u.id
-//   GROUP BY u.id
-// `);
-
-//     res.json({ totalUsers, activeSubscribers, users });
-//   } catch (err) {
-//     res.status(401).json({ message: "Unauthorized", error: err.message });
-//   }
-// });
-
 router.get("/users", async (req, res) => {
   const authHeader = req.headers.authorization;
   const token = authHeader?.split(" ")[1];

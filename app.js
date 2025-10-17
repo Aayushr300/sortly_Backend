@@ -41,7 +41,7 @@ app.use(
 );
 
 // Preflight
-app.options("*", cors());
+app.options("/*", cors());
 
 const {
   redirectFromShortUrl,
