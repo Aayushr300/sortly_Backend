@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@cashfreepayments/cashfree-sdk": "^0.1.7",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "cashfree-pg": "^5.0.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "ecrypt": "^2.0.4",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.0",
+    "mysql2": "^3.14.1",
+    "nanoid": "^3.3.4",
+    "nodemailer": "^7.0.4",
+    "pdfkit": "^0.17.1",
+    "razorpay": "^2.9.6",
+    "useragent": "^2.3.0"
+  }
+}
