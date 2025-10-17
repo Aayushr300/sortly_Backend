@@ -35,8 +35,26 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-  const { name, email, password } = req.body;
+  try {
+    // Safely destructure with default empty object
+    const { name, email, password } = req.body || {};
 
-  const user = await registerUser(name, email, password);
-  res.status(200).json(user);
+    // Validate input
+    if (!name || !email || !password) {
+      return res
+        .status(400)
+        .json({ message: "Name, email, and password are required" });
+    }
+
+    // Call your existing registration service
+    const user = await registerUser(name, email, password);
+
+    // Respond with success
+    res.status(201).json({ message: "User registered successfully", user });
+  } catch (error) {
+    console.error("Register Error:", error);
+    res
+      .status(500)
+      .json({ message: "Internal Server Error", error: error.message });
+  }
 };
